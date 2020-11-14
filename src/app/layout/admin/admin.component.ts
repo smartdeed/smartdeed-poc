@@ -97,7 +97,7 @@ export class AdminComponent implements OnInit {
   isSidebarChecked: boolean;
   isHeaderChecked: boolean;
 
-  @ViewChild('searchFriends', /* TODO: add static flag */ {static: false}) search_friends: ElementRef;
+  @ViewChild('searchFriends') search_friends: ElementRef;
 
   public config: any;
 

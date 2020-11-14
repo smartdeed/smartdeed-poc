@@ -50,20 +50,20 @@ export class WizardComponent implements OnInit {
     theme: THEME.dots,
     toolbarSettings: {
       toolbarExtraButtons: [
-        {
-          text: 'Finish',
-          class: 'btn btn-info',
-          event: () => {
-            alert('Finished!!!');
-          }
-        },
-        {
-          text: 'Reset',
-          class: 'btn btn-danger',
-          event: () => {
-            this.resetWizard();
-          }
-        }
+        // {
+        //   text: 'Finish',
+        //   class: 'btn btn-info',
+        //   event: () => {
+        //     alert('Finished!!!');
+        //   }
+        // },
+        // {
+        //   text: 'Reset',
+        //   class: 'btn btn-danger',
+        //   event: () => {
+        //     this.resetWizard();
+        //   }
+        // }
       ]
     }
   };

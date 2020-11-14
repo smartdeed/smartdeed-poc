@@ -9005,3 +9005,15 @@ a.text-dark:focus,a.text-dark:hover {
         display: block
     }
 }
+
+.btn-upload-doc {
+    background-color: transparent !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -2px;
+}
+
+.btn-upload-doc.disabled {
+    color: gray !important;
+    pointer-events: none;
+}

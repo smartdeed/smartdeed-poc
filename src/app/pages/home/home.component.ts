@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit {
   totalValueGraphData2 = buildChartJS('#fff', [10, 25, 35, 20, 10, 20, 15, 45, 15, 10], '#e55571', 'transparent');
   totalValueGraphOption = buildChartOption();
 
-
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -413,7 +412,7 @@ function buildChartOption() {
       padding: {
         left: 0,
         right: 0,
-        top: 5,
+        top: 0,
         bottom: 0
       }
     }

@@ -36,15 +36,22 @@ const MENUITEMS = [
     main: [
       {
         state: 'wizard',
-        short_label: 'W',
-        name: 'Wizard',
+        short_label: 'L',
+        name: 'Selling "Home Lisbon"',
         type: 'link',
-        icon: 'ti-home'
+        icon: 'ti-direction-alt'
+      },
+      {
+        state: 'wizard',
+        short_label: 'M',
+        name: 'Buying "Home Marbella"',
+        type: 'link',
+        icon: 'ti-direction-alt'
       },
       {
         state: 'dashboard',
         short_label: 'D',
-        name: 'Dashboard',
+        name: 'To be removed',
         type: 'link',
         icon: 'ti-home'
       },

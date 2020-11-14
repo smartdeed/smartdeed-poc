@@ -11,29 +11,14 @@
           </thead>
           <tbody>
           <tr (click)="goToWizard()">
-            <td>
+            <td style="width: 60%;">
               <div class="task-contain">
-                <h6 class="bg-c-blue d-inline-block text-center">U</h6>
-                <p class="d-inline-block m-l-20">UI Design</p>
+                <h6 class="bg-c-pink d-inline-block text-center">S</h6>
+                <p class="d-inline-block m-l-20">SELLING "Home Lisbon" -- HEDB-2DFAA-478AA-CB251</p>
               </div>
             </td>
-            <td>
-              <p class="d-inline-block m-r-20">4 : 36</p>
-              <div class="progress d-inline-block">
-                <div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr (click)="goToWizard()">
-            <td>
-              <div class="task-contain">
-                <h6 class="bg-c-pink d-inline-block text-center">R</h6>
-                <p class="d-inline-block m-l-20">Redesign Android App</p>
-              </div>
-            </td>
-            <td>
-              <p class="d-inline-block m-r-20">4 : 36</p>
+            <td style="width: 40%;">
+              <p class="d-inline-block m-r-20">Realtor Validating</p>
               <div class="progress d-inline-block">
                 <div class="progress-bar bg-c-pink" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:60%">
                 </div>
@@ -41,46 +26,16 @@
             </td>
           </tr>
           <tr (click)="goToWizard()">
-            <td>
+            <td style="width: 60%;">
               <div class="task-contain">
-                <h6 class="bg-c-yellow d-inline-block text-center">L</h6>
-                <p class="d-inline-block m-l-20">Logo Design</p>
+                <h6 class="bg-c-yellow d-inline-block text-center">B</h6>
+                <p class="d-inline-block m-l-20">BUYING "Home Marbella" -- SAA5-AFDDE-45AD7-88774</p>
               </div>
             </td>
-            <td>
-              <p class="d-inline-block m-r-20">4 : 36</p>
+            <td style="width: 40%;">
+              <p class="d-inline-block m-r-20">Bank pending</p>
               <div class="progress d-inline-block">
                 <div class="progress-bar bg-c-yellow" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr (click)="goToWizard()">
-            <td>
-              <div class="task-contain">
-                <h6 class="bg-c-green d-inline-block text-center">A</h6>
-                <p class="d-inline-block m-l-20">Appestia landing Page</p>
-              </div>
-            </td>
-            <td>
-              <p class="d-inline-block m-r-20">4 : 36</p>
-              <div class="progress d-inline-block">
-                <div class="progress-bar bg-c-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr (click)="goToWizard()">
-            <td>
-              <div class="task-contain">
-                <h6 class="bg-c-blue d-inline-block text-center">L</h6>
-                <p class="d-inline-block m-l-20">Logo Design</p>
-              </div>
-            </td>
-            <td>
-              <p class="d-inline-block m-r-20">4 : 36</p>
-              <div class="progress d-inline-block">
-                <div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:50%">
                 </div>
               </div>
             </td>
@@ -88,6 +43,14 @@
           </tbody>
         </table>
       </div>
+    </app-card>
+  </div>
+
+  <div class="col-md-12 col-xl-12">
+    <app-card [title]="'Market status for Marbella area'" [cardClass]="'email-sent-card'" [classHeader]="true" style="padding-bottom: 0;">
+      <span class="code-header">
+      </span>
+      <div id="email-sent" style="max-width:100%;height:400px;"></div>
     </app-card>
   </div>
 </div>
