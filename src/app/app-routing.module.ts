@@ -10,8 +10,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'home',
         pathMatch: 'full'
+      }, {
+        path: 'home',
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
       }, {
         path: 'wizard',
         loadChildren: () => import('./pages/wizard/wizard.module').then(m => m.WizardModule)
