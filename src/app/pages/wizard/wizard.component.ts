@@ -8,6 +8,16 @@ import '../../../assets/charts/amchart/light.js';
 import '../../../assets/charts/amchart/ammap.js';
 import '../../../assets/charts/amchart/worldLow.js';
 
+import { of } from 'rxjs';
+import { StepValidationArgs } from 'ng-wizard/lib/utils/interfaces';
+import {
+  NgWizardConfig,
+  NgWizardService,
+  StepChangedArgs,
+  STEP_STATE,
+  THEME
+} from 'ng-wizard'; // 'ng-wizard'
+
 declare const AmCharts: any;
 declare const $: any;
 
@@ -15,16 +25,57 @@ declare const $: any;
   selector: 'app-wizard',
   templateUrl: './wizard.component.html',
   styleUrls: [
-    './wizard.component.scss',
+    './wizard.component.css',
+    './ng_wizard.min.css',
+    './ng_wizard_theme_arrows.min.css',
+    './ng_wizard_theme_circles.min.css',
+    './ng_wizard_theme_dots.min.css',
     '../../../assets/icon/svg-animated/svg-weather.css'
   ]
 })
-export class DashboardDefaultComponent implements OnInit {
+export class WizardComponent implements OnInit {
   totalValueGraphData1 = buildChartJS('#fff', [45, 25, 35, 20, 45, 20, 40, 10, 30, 45], '#3a73f1', 'transparent');
   totalValueGraphData2 = buildChartJS('#fff', [10, 25, 35, 20, 10, 20, 15, 45, 15, 10], '#e55571', 'transparent');
   totalValueGraphOption = buildChartOption();
 
-  constructor() { }
+  stepStates = {
+    normal: STEP_STATE.normal,
+    disabled: STEP_STATE.disabled,
+    error: STEP_STATE.error,
+    hidden: STEP_STATE.hidden
+  };
+
+  config: NgWizardConfig = {
+    selected: 0,
+    theme: THEME.dots,
+    toolbarSettings: {
+      toolbarExtraButtons: [
+        {
+          text: 'Finish',
+          class: 'btn btn-info',
+          event: () => {
+            alert('Finished!!!');
+          }
+        },
+        {
+          text: 'Reset',
+          class: 'btn btn-danger',
+          event: () => {
+            this.resetWizard();
+          }
+        }
+      ]
+    }
+  };
+
+  isValidTypeBoolean = true;
+  stepChangedArgs: StepChangedArgs;
+  selectedTheme: THEME;
+  themes = [THEME.default, THEME.arrows, THEME.circles, THEME.dots];
+  selectedStepIndex: number;
+  stepIndexes = [0, 1, 2, 3, 4, 5, 6];
+
+  constructor(private ngWizardService: NgWizardService) { }
 
   ngOnInit() {
     AmCharts.makeChart('statistics-chart', {
@@ -294,6 +345,16 @@ export class DashboardDefaultComponent implements OnInit {
         }
       ]
     });
+
+    // -------------------------
+
+    this.selectedTheme = this.config.theme;
+    this.selectedStepIndex = this.config.selected;
+
+    this.ngWizardService.stepChanged()
+      .subscribe({
+        next: (args) => this.setStepChangedArgs(args)
+      });
   }
 
   onTaskStatusChange(event) {
@@ -301,6 +362,51 @@ export class DashboardDefaultComponent implements OnInit {
     parentNode.classList.toggle('done-task');
   }
 
+  showPreviousStep(event?: Event) {
+    this.ngWizardService.previous();
+  }
+
+  showNextStep(event?: Event) {
+    this.ngWizardService.next();
+  }
+
+  resetWizard(event?: Event) {
+    this.selectedTheme = this.config.theme;
+    this.ngWizardService.reset();
+  }
+
+  themeSelected() {
+    this.ngWizardService.theme(this.selectedTheme);
+  }
+
+  stepIndexSelected() {
+    this.ngWizardService.show(this.selectedStepIndex);
+  }
+
+  stepChanged(args: StepChangedArgs) {
+    // console.log(args.step);
+
+    this.setStepChangedArgs(args);
+  }
+
+  isValidFunctionReturnsBoolean(args: StepValidationArgs) {
+    return true;
+  }
+
+  isValidFunctionReturnsObservable(args: StepValidationArgs) {
+    return of(true);
+  }
+
+  private setStepChangedArgs(args: StepChangedArgs) {
+    // tslint:disable-next-line: no-unused-expression
+    args.step ? (<any>args.step).__ngContext__ = undefined : {};
+    // tslint:disable-next-line: no-unused-expression
+    args.previousStep ? (<any>args.previousStep).__ngContext__ = undefined : {};
+
+    setTimeout(() => {
+      this.stepChangedArgs = args;
+    }, 0);
+  }
 }
 
 function getRandomData() {

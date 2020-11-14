@@ -1,18 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { DashboardDefaultRoutingModule } from './wizard-routing.module';
-import { DashboardDefaultComponent } from './wizard.component';
+import { WizardRoutingModule } from './wizard-routing.module';
+import { WizardComponent } from './wizard.component';
 import {SharedModule} from '../../shared/shared.module';
 import {ChartModule} from 'angular2-chartjs';
+
+import { NgWizardModule, NgWizardConfig, THEME } from 'ng-wizard'; // BrowserModule no longer breaking here
+
+// wizard
+const ngWizardConfig: NgWizardConfig = {
+  theme: THEME.default
+};
 
 @NgModule({
   imports: [
     CommonModule,
-    DashboardDefaultRoutingModule,
+    WizardRoutingModule,
     SharedModule,
-    ChartModule
+    ChartModule,
+    FormsModule,
+    NgWizardModule.forRoot(ngWizardConfig)
   ],
-  declarations: [DashboardDefaultComponent]
+  declarations: [WizardComponent]
 })
 export class WizardModule { }

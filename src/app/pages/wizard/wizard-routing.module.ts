@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {DashboardDefaultComponent} from './wizard.component';
+import { WizardComponent } from './wizard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: DashboardDefaultComponent,
+    component: WizardComponent,
     data: {
       breadcrumb: 'Default',
       icon: 'icofont-home bg-c-blue',
@@ -18,4 +18,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DashboardDefaultRoutingModule { }
+export class WizardRoutingModule { }
