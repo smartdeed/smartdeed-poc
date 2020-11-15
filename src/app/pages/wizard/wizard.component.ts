@@ -25,12 +25,11 @@ declare const $: any;
   selector: 'app-wizard',
   templateUrl: './wizard.component.html',
   styleUrls: [
-    './wizard.component.css',
     './ng_wizard.min.css',
     './ng_wizard_theme_arrows.min.css',
     './ng_wizard_theme_circles.min.css',
     './ng_wizard_theme_dots.min.css',
-    '../../../assets/icon/svg-animated/svg-weather.css'
+    './wizard.component.scss'
   ]
 })
 export class WizardComponent implements OnInit {

@@ -35,6 +35,13 @@ const MENUITEMS = [
     label: 'Navigation',
     main: [
       {
+        state: 'home',
+        short_label: 'H',
+        name: 'Home',
+        type: 'link',
+        icon: 'ti-home'
+      },
+      {
         state: 'wizard',
         short_label: 'L',
         name: 'Selling "Home Lisbon"',
